@@ -1,10 +1,11 @@
 resource "aws_lb" "application_load_balancer" {
-    name = "${var.project}-${var.env}-alb"
-    internal = false
-    load_balancer_type = "application"
-    security_groups = [aws_security_group.security_group.id]
-}
+  name               = "${var.project}-${var.env}-alb"
+  internal           = false
+  load_balancer_type = "application"
+  security_groups    = [aws_security_group.security_group.id]
 
+  subnets = data.aws_subnets.default_subnets.ids
+}
 resource "aws_lb_listener" "application_load_balancer_listener" {
     load_balancer_arn = aws_lb.application_load_balancer.arn
     port = 80

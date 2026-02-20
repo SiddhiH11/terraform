@@ -6,6 +6,13 @@ data "aws_vpc" "default" {
   default = true
 }
 
+data "aws_subnets" "default_subnets" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
 resource "aws_security_group" "security_group" {
   name = "${var.project}-${var.env}-sg"
   description = "New Security Group"
