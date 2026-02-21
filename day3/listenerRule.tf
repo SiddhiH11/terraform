@@ -33,7 +33,7 @@ resource "aws_lb_listener_rule" "laptop_listener_rule" {
 
 resource "aws_lb_listener_rule" "mobile_listener_rule" {
     listener_arn = aws_lb_listener.application_load_balancer_listener.arn
-    priority = 100  
+    priority = 101 
     action {
         type             = "forward"
         target_group_arn = aws_lb_target_group.mobile_target_group.arn
