@@ -1,6 +1,6 @@
 resource "aws_autoscaling_group" "home_asg" {
     name = "${var.project}-${var.env}-home-asg"
-    availability_zones = ["eu-west-1a", "eu-west-1b"]
+    availability_zones = ["us-east-1a", "us-east-1b"]
     desired_capacity = 1
     max_size = 2
     min_size = 1
@@ -24,7 +24,7 @@ resource "aws_autoscaling_policy" "home_asg_policy" {
 
 resource "aws_autoscaling_group" "mobile_asg" {
     name = "${var.project}-${var.env}-mobile-asg"
-    availability_zones = ["eu-west-1a", "eu-west-1b"]
+    availability_zones = ["us-east-1a", "us-east-1b"]
     desired_capacity = 1
     max_size = 2
     min_size = 1
@@ -48,7 +48,7 @@ resource "aws_autoscaling_policy" "mobile_asg_policy" {
 
 resource "aws_autoscaling_group" "laptop_asg" {
     name = "${var.project}-${var.env}-laptop-asg"
-    availability_zones = ["eu-west-1a", "eu-west-1b"]
+    availability_zones = ["us-east-1a", "us-east-1b"]
     desired_capacity = 1
     max_size = 2
     min_size = 1
